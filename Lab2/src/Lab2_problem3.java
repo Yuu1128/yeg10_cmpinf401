@@ -11,7 +11,9 @@ public class Lab2_problem3 {
 	    int sawbucks = ((dollar % 1000) % 100) /10;
 	    int bucks = (((dollar % 1000) % 100) % 10 )/ 1;
 	    
-	    JOptionPane.showMessageDialog(null, "You can buy:\n" + grands + " grands\n" + Benjamins + " Benjamins\n" + sawbucks + " sawbucks\n"+ bucks + " bucks");
+	    JOptionPane.showMessageDialog(null, "You can buy:\n" + grands + 
+	    " grands\n" + Benjamins + " Benjamins\n" + 
+	    sawbucks + " sawbucks\n"+ bucks + " bucks");
 
 	}
 
