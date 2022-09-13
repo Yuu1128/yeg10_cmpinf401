@@ -16,7 +16,9 @@ public class Lab2_problem2 {
 	    int b = (int) Math.round(area);
 	    area = b / 100.0;
 	    
-		JOptionPane.showMessageDialog(null, "The circle with radius "+ r + " has an area of " + area + " and a perimeter of " + perimeter + ".");
+		JOptionPane.showMessageDialog(null, "The circle with radius "+ r + 
+					      " has an area of " + area + 
+					      " and a perimeter of " + perimeter + ".");
 
 	}
 
