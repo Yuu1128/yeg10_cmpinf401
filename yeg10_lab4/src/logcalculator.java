@@ -24,11 +24,11 @@ do {
 int count = 0;
 int i = 0;
 
-		while(i <= log) {
-		count++;
-		i = (int) (Math.pow(base, count+1));	
-		}
-		System.out.println(count);
-		}		
+	while(i <= log) {
+	count++;
+	i = (int) (Math.pow(base, count+1));	
+	}
+	System.out.println(count);
+	}		
 }
 	

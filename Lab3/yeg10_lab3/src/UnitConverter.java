@@ -31,23 +31,23 @@ public class UnitConverter {
 		if (classifyuni.equalsIgnoreCase(cm_to_inches)){
 			result_unit = result_cm_to_inches;
 			result_number = result1;
-	}
+		}
 		else if (classifyuni.equalsIgnoreCase(result_cm_to_inches)){
 			result_unit = cm_to_inches;
 			result_number = result2;
-	}
+		}
 		else if (classifyuni.equalsIgnoreCase(yards_to_meter)){
 			result_unit = result_yards_to_meter;
 			result_number = result3;
-	}
+		}
 		else if (classifyuni.equalsIgnoreCase(result_yards_to_meter)){
 			result_unit = yards_to_meter;
 			result_number = result4;
-	}
+		}
 		else if (classifyuni.equalsIgnoreCase(ounces_to_gram)) {
 			result_unit = result_ounces_to_gram;
 			result_number = result5;
-	}
+		}
 		else if (classifyuni.equalsIgnoreCase(result_ounces_to_gram)){
 			result_unit = ounces_to_gram;
 			result_number = result6;

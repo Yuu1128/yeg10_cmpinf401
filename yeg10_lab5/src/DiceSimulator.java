@@ -23,7 +23,7 @@ public class DiceSimulator{
 			int d1 = rand.nextInt(6) + 1;
 			int d2 = rand.nextInt(6) + 1;
 			int twoDiceSum = d1 + d2;
-	
+
 			if(twoDiceSum == 2){
 				dice_2 ++; 
 			}
