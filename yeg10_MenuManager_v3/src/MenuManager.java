@@ -72,7 +72,7 @@ public class MenuManager {
 		}
 		return desserts;
 	}
-
+	/*
 	public ArrayList<MenuItem> splitArrayList(ArrayList<MenuItem> dishList){
 		ArrayList<Entree> entrees = new ArrayList<Entree>();
 		ArrayList<Side> sides = new ArrayList<Side>();
@@ -102,7 +102,7 @@ public class MenuManager {
 		return dishList;
 
 	}
-
+	 */
 	public Menu randomMenu(String name) {
 		int indexEntree = (int) (Math.random() * entrees.size());
 		//System.out.println(indexEntree);

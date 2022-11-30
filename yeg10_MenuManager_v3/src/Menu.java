@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Class Menu
  * @author Yexiu Gao(yeg10)
@@ -9,8 +11,9 @@ public class Menu {
 	private Entree entree;
 	private Side side;
 	private Salad salad;
-	private Dessert dessert;	
+	private Dessert dessert;
 
+	
 	public Menu(String name) {
 		this.name = name;
 		entree = null; 
@@ -84,11 +87,46 @@ public class Menu {
 			SumCalories += 0;
 		}
 
-		System.out.println("\nThe total calories of " + this.name + " is: "+ SumCalories + " calories");
+		System.out.println("\nThe total calories of " + this.name + " is: "+ SumCalories + " calories.");
 		return SumCalories;
 
 	}
 
+	/**
+	 * Method totalCalories
+	 * @return the sum of the calories
+	 */
+	public double totalPrice() {
+		double SumPrice = 0;
+
+		if(entree != null){
+			SumPrice += entree.getPrice();
+		}else {
+			SumPrice += 0;
+		}
+
+		if(side != null){
+			SumPrice += side.getPrice();
+		}else {
+			SumPrice += 0;
+		}
+
+		if(salad != null) {
+			SumPrice += salad.getPrice();
+		}else {
+			SumPrice += 0;
+		}
+
+		if(dessert != null){
+			SumPrice += dessert.getPrice();
+		}else {
+			SumPrice += 0;
+		}
+
+		System.out.println("\nThe total price of " + this.name + " is: $"+ String.format("%.2f", SumPrice) + ".");
+		return SumPrice;
+
+	}
 	/**
 	 * Method description
 	 * @return the description of the menu
@@ -101,28 +139,28 @@ public class Menu {
 			System.out.println("Entree: nothing here!");
 
 		}else {
-			System.out.println(entree.getName() + ": " + entree.getDescription());
+			System.out.println("Entree: "+ entree.getName() + ". " + entree.getDescription() + ".");
 		}
 
 		if(side == null || side.getDescription() == null){
 			System.out.println("Side: nothing here!");
 
 		}else {
-			System.out.println(side.getName() + ": " + side.getDescription());
+			System.out.println("Side: "+ side.getName() + ". " + side.getDescription() + ".");
 		}
 
 		if(salad == null || salad.getDescription() == null){
 			System.out.println("Salad: nothing here!");
 
 		}else {
-			System.out.println(salad.getName() + ": " + salad.getDescription());
+			System.out.println("Salad: "+ salad.getName() + ". " + salad.getDescription() + ".");
 		}
 
 		if(dessert == null || dessert.getDescription() == null){
 			System.out.println("Dessert: nothing here!\n");
 
 		}else {
-			System.out.println(dessert.getName() + ": " + dessert.getDescription());
+			System.out.println("Dessert: "+ dessert.getName() + ". " + dessert.getDescription() + ".");
 		}
 		return description;
 

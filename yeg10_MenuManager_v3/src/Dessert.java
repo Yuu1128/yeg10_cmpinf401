@@ -1,7 +1,7 @@
 /**
  * Class Dessert
  * @author Yexiu Gao(yeg10)
- * @created 10/07/2022
+ * @created 11/19/2022
  */
 
 public class Dessert extends MenuItem {
@@ -11,3 +11,4 @@ public class Dessert extends MenuItem {
 	}
 
 }
+
