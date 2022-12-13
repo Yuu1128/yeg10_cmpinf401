@@ -75,12 +75,18 @@ public class FileManager {
 			BufferedWriter bw = new BufferedWriter(fw);
 			for (Menu menu : menus) {
 				bw.write(menu.getName().toString());
+				bw.newLine();
 				bw.write(menu.getEntree().toString());
+				bw.newLine();
 				bw.write(menu.getSide().toString());
+				bw.newLine();
 				bw.write(menu.getSalad().toString());
+				bw.newLine();
 				bw.write(menu.getDessert().toString());
-				bw.write(menu.totalCalories());
-				bw.write(String.valueOf(menu.totalPrice()));
+				bw.newLine();
+				bw.write("total calories: " + menu.totalCalories());
+				bw.newLine();
+				bw.write("total price: " + String.valueOf(menu.totalPrice()));
 				bw.newLine();
 			}
 			bw.close();
