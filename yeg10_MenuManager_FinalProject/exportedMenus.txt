@@ -1,0 +1,23 @@
+wdfwedwe
+Griller Steak: 
+Carefully selected prime quality steak griller to the point of your preference, 
+calories: 740, 
+price: 37.45
+
+Rice and Avocado: 
+Premium quality Indian rice mixed with avocado, 
+calories: 240, 
+price: 11.99
+
+Mango Salad: 
+A fresh, fruity summertime salad loaded with nutrient-dense foods, topped with a light oil-free lime peanut dressing, 
+calories: 633, 
+price: 12.5
+
+Cheesecake: 
+Lemon raspberry cheesecake with white chocolate, 
+calories: 700, 
+price: 8.95
+
+total calories: 2313
+total price: 70.89

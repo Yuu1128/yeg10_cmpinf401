@@ -12,8 +12,8 @@ public class MenuManagerGUI {
 	private JFrame mainMenuManagerWindow;
 	private JLabel lblEntrees, lblSides, lblSalads, lblDesserts, lblCreatedMenus, lblReport;
 	private JComboBox cboEntrees, cboSides, cboSalads, cboDesserts;
-	private JTextField detailTxtAmountFld, detailEntreeFld, detailSaladFld;
-//	private JTextArea menuInfoTextFld;
+	private JTextField detailTxtAmountFld, detailEntreeFld, detailSaladFld, detailSideFld, detailDessertFld, detailTotalCalFld, detailTotalPriceFld;
+	//	private JTextArea menuInfoTextFld;
 	ArrayList<Menu> menus;
 	JList<Menu> menuJList;
 	private JButton btnCreateMenu, btnGenerateRandom, btnGenerateMinimum, btnGenerateMaximum, btnDetails, btnDelete, btnSave;
@@ -25,13 +25,13 @@ public class MenuManagerGUI {
 		menus = new ArrayList<Menu>();
 		menuJList = new JList<Menu>();
 	}
-	
+
 
 	private void buildMainMenuManagerGUIWindow(JFrame mainMenuManagerWindow) {
 		// Add main window
 		mainMenuManagerWindow.setBounds(20, 20, 800, 800);
 		mainMenuManagerWindow.setLayout(null);
-				
+
 		// Add four labels
 		lblEntrees = new JLabel("Entree ");
 		lblEntrees.setBounds(40, 20, 80, 30);
@@ -98,15 +98,15 @@ public class MenuManagerGUI {
 		JButton btnDetails = new JButton("Details");
 		btnDetails.setBounds(360, 420, 80, 30);
 		mainMenuManagerWindow.getContentPane().add(btnDetails);
-		
+
 		JButton btnDelete = new JButton("Delete all");
 		btnDelete.setBounds(430, 420, 90, 30);
 		mainMenuManagerWindow.getContentPane().add(btnDelete);
-		
+
 		JButton btnSave = new JButton("Save to file");
 		btnSave.setBounds(510, 420, 95, 30);
 		mainMenuManagerWindow.getContentPane().add(btnSave);
-		
+
 
 		// Show window
 		mainMenuManagerWindow.setVisible(true);
@@ -146,7 +146,7 @@ public class MenuManagerGUI {
 		Border border = BorderFactory.createTitledBorder(title);
 		panelRight.setBorder(border);
 		panelRight.setLayout(new BoxLayout(panelRight, BoxLayout.PAGE_AXIS));
-//		panelRight.add(this.menuInfoTextFld);
+		//		panelRight.add(this.menuInfoTextFld);
 		panelRight.add(this.menuJList);
 		mainMenuManagerWindow.add(panelRight);
 
@@ -156,7 +156,7 @@ public class MenuManagerGUI {
 			public void actionPerformed(ActionEvent e) {
 				String menuNameInput = javax.swing.JOptionPane.showInputDialog("Please customize your menu name.");
 				Menu newMenu = new Menu(menuNameInput);
-				
+
 				Entree selectedEntree = (Entree) cboEntrees.getSelectedItem();
 				newMenu.setEntree(selectedEntree);
 				Side selectedSide = (Side) cboSides.getSelectedItem();
@@ -165,19 +165,19 @@ public class MenuManagerGUI {
 				newMenu.setSalad(selectedSalad);
 				Dessert selectedDessert = (Dessert) cboDesserts.getSelectedItem();
 				newMenu.setDessert(selectedDessert);
-				
+
 				menus.add(newMenu);
 				Menu[] tmpMenu = new Menu[menus.size()];
 				menuJList.setListData(menus.toArray(tmpMenu));
 			}
 		});
-		
+
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FileManager.writeMenu("exportedMenus.txt", menus);
 			}
 		});
-		
+
 		btnDelete.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -202,17 +202,17 @@ public class MenuManagerGUI {
 				detailFrame.setVisible(true);
 				int Y_DIST = 110;
 				int DETAIL_HEIGHT = 80;
-				
+
 				// set entree
 				JTextArea detailEntreeFld = new JTextArea(selectedMenu.getEntree().toString());
 				detailEntreeFld.setBounds(200, 40, 500, DETAIL_HEIGHT );
 				detailEntreeFld.setEditable(false);
 				JLabel entreeLabel = new JLabel("Entree:");
-				
+
 				entreeLabel.setBounds(20, 40, 100, 30);
 				detailFrame.getContentPane().add(entreeLabel);
 				detailFrame.getContentPane().add(detailEntreeFld);
-				
+
 				// set side
 				JTextArea detailSideFld = new JTextArea(selectedMenu.getSide().toString());
 				detailSideFld.setBounds(200, 40 + 1 * Y_DIST, 500, DETAIL_HEIGHT );
@@ -221,7 +221,7 @@ public class MenuManagerGUI {
 				sideLabel.setBounds(20, 40 + 1 * Y_DIST, 100, 30);
 				detailFrame.getContentPane().add(sideLabel);
 				detailFrame.getContentPane().add(detailSideFld);
-				
+
 				// set salad
 				JTextArea detailSaladFld = new JTextArea(selectedMenu.getSalad().toString());
 				detailSaladFld.setBounds(200, 40 + 2 * Y_DIST, 500, DETAIL_HEIGHT );
@@ -230,7 +230,7 @@ public class MenuManagerGUI {
 				saladLabel.setBounds(20, 40 + 2 * Y_DIST, 100, 30);
 				detailFrame.getContentPane().add(saladLabel);
 				detailFrame.getContentPane().add(detailSaladFld);
-				
+
 				// set dessert
 				JTextArea detailDessertFld = new JTextArea(selectedMenu.getDessert().toString());
 				detailDessertFld.setBounds(200, 40 + 3 * Y_DIST, 500, DETAIL_HEIGHT );
@@ -240,6 +240,23 @@ public class MenuManagerGUI {
 				detailFrame.getContentPane().add(dessertLabel);
 				detailFrame.getContentPane().add(detailDessertFld);
 
+				// set total calories
+				JTextArea detailTotalCalFld = new JTextArea(Integer.toString(selectedMenu.totalCalories()));
+				detailTotalCalFld.setBounds(200, 40 + 4 * Y_DIST, 500, DETAIL_HEIGHT );
+				detailTotalCalFld.setEditable(false);
+				JLabel caloriesLabel = new JLabel("Total calories:");
+				caloriesLabel.setBounds(20, 40 + 4 * Y_DIST, 100, 30);
+				detailFrame.getContentPane().add(caloriesLabel);
+				detailFrame.getContentPane().add(detailTotalCalFld);
+				
+				// set price
+				JTextArea detailTotalPriceFld = new JTextArea(Double.toString(selectedMenu.totalPrice()));
+				detailTotalPriceFld.setBounds(200, 40 + 5 * Y_DIST, 500, DETAIL_HEIGHT );
+				detailTotalPriceFld.setEditable(false);
+				JLabel priceLabel = new JLabel("Total price: $");
+				priceLabel.setBounds(20, 40 + 5 * Y_DIST, 100, 30);
+				detailFrame.getContentPane().add(priceLabel);
+				detailFrame.getContentPane().add(detailTotalPriceFld);
 			}
 		});
 	}
